@@ -3,31 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AssetDispatchManager.Controllers
+namespace AssetDispatchManager.Models
 {
-    public class Laser
+    public class Phaco
     {
-        #region Private Laser Variables
-        private int laserID;
-        private string laserName;
+        #region Private Phaco Variables
+        private int phacoID;
+        private string phacoName;
         private string brand;
         private string model;
         private bool isActive;
         #endregion
 
-        #region Public Laser GetterSetters
-        public int LaserID { get => laserID; set => laserID = value; }
-        public string LaserName { get => laserName; set => laserName = value; }
+        #region Public Phaco GetterSetters
+        public int PhacoID { get => phacoID; set => phacoID = value; }
+        public string PhacoName { get => phacoName; set => phacoName = value; }
         public string Brand { get => brand; set => brand = value; }
         public string Model { get => model; set => model = value; }
         public bool IsActive { get => isActive; set => isActive = value; }
         #endregion
 
-        #region Public Laser Constructors
-        public Laser(int laserID, string laserName, string brand, string model, bool isActive)
+        #region Public Phaco Constructors
+        public Phaco(int phacoID, string phacoName, string brand, string model, bool isActive)
         {
-            LaserID = laserID;
-            LaserName = laserName;
+            PhacoID = phacoID;
+            PhacoName = phacoName;
             Brand = brand;
             Model = model;
             IsActive = isActive;

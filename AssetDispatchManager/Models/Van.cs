@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AssetDispatchManager.Controllers
+namespace AssetDispatchManager.Models
 {
     public class Van
     {
