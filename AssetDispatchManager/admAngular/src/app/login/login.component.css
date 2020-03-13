@@ -67,3 +67,30 @@
 .gold {
     color: #b39460;
 }
+
+@media screen and (max-width: 1004px) {
+    .display-1 {
+        font-size: 60px;
+    }
+
+    .login-container {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .display-1 {
+        font-size: 50px;
+    }
+
+    .login-container {
+        width: 290px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .login-container {
+        margin-top: 100px;
+        height: 60%;
+    }
+}
