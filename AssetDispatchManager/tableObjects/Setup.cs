@@ -41,6 +41,18 @@ namespace AssetDispatchManager.tableObjects
             Image = image;
             SetUpDescription = setUpDescription;
         }
+
+        public Setup()
+        {
+            SetupID = 0;
+            AddressID = 0;
+            EquipmentID = 0;
+            DoctorFirstName = "Default DoctorFirstName";
+            DoctroLastName = "Default DoctorLastName";
+            RoomNumber = 000;
+            Image = "Default ImageUrl";
+            SetUpDescription = "Default SetUpDescription";
+        }
         #endregion
     }
 }

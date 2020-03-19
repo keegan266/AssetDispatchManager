@@ -32,6 +32,15 @@ namespace AssetDispatchManager.tableObjects
             Model = model;
             IsActive = isActive;
         }
+
+        public Scope()
+        {
+            ScopeID = 0;
+            ScopeName = "Default ScopeName";
+            Brand = "Default Brand";
+            Model = "Default Model";
+            IsActive = false;
+        }
         #endregion
     }
 }

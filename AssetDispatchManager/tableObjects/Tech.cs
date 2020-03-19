@@ -14,7 +14,7 @@ namespace AssetDispatchManager.tableObjects
         private string jobRole;
         private string email;
         private string phoneNumber;
-        private string isWorking;
+        private bool isWorking;
         #endregion
 
         #region Public Tech GetterSetters
@@ -24,11 +24,11 @@ namespace AssetDispatchManager.tableObjects
         public string JobRole { get => jobRole; set => jobRole = value; }
         public string Email { get => email; set => email = value; }
         public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
-        public string IsWorking { get => isWorking; set => isWorking = value; }
+        public bool IsWorking { get => isWorking; set => isWorking = value; }
         #endregion
 
         #region Public Tech Constructors
-        public Tech(int techID, string firstName, string lastName, string jobRole, string email, string phoneNumber, string isWorking)
+        public Tech(int techID, string firstName, string lastName, string jobRole, string email, string phoneNumber, bool isWorking)
         {
             TechID = techID;
             FirstName = firstName;
@@ -37,6 +37,24 @@ namespace AssetDispatchManager.tableObjects
             Email = email;
             PhoneNumber = phoneNumber;
             IsWorking = isWorking;
+        }
+
+        public Tech()
+        {
+            TechID = 0;
+            FirstName = "Default FirstName";
+            LastName = "Default LastName";
+            JobRole = "Default JobRole";
+            Email = "Default Email";
+            PhoneNumber = "00000000000";
+            IsWorking = isWorking;
+        }
+        #endregion
+
+        #region Methods
+        public override string ToString()
+        {
+            return $"TechID : {TechID} FirstName : {FirstName} LastName : {LastName} JobRole : {JobRole} Email : {Email} PhoneNumber : {PhoneNumber} IsWorking : {IsWorking}";
         }
         #endregion
     }

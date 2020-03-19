@@ -35,6 +35,16 @@ namespace AssetDispatchManager.tableObjects
             Height = height;
             InUse = inUse;
         }
+
+        public Van()
+        {
+            VanID = 0;
+            Brand = "Default Brand";
+            Model = "Default Model";
+            Length = "Default Lenght";
+            Height = "Default Height";
+            InUse = false;
+        }
         #endregion
     }
 }

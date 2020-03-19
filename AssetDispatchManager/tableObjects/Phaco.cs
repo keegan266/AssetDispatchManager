@@ -32,6 +32,15 @@ namespace AssetDispatchManager.tableObjects
             Model = model;
             IsActive = isActive;
         }
+
+        public Phaco()
+        {
+            PhacoID = 0;
+            PhacoName = "Default PhacoName";
+            Brand = "Default Brand";
+            Model = "Default Model";
+            IsActive = false;
+        }
         #endregion
     }
 }

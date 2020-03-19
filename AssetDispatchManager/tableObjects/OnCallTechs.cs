@@ -32,6 +32,15 @@ namespace AssetDispatchManager.tableObjects
             TechTertiaryID1 = techTertiaryID1;
             TechAvailable1 = techAvailable1;
         }
+
+        public OnCallTechs()
+        {
+            OnCallTechID = 0;
+            TechPrimaryID1 = 0;
+            TechSecondaryID1 = 0;
+            TechTertiaryID1 = 0;
+            TechAvailable1 = 0;
+        }
         #endregion
     }
 }

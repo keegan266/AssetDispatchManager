@@ -14,7 +14,7 @@ namespace AssetDispatchManager.tableObjects
         private string addressLine2;
         private string city;
         private string state;
-        private string Zipcode;
+        private string zipcode;
         #endregion
 
         #region Public Address GetterSetters
@@ -24,7 +24,7 @@ namespace AssetDispatchManager.tableObjects
         public string AddressLine2 { get => addressLine2; set => addressLine2 = value; }
         public string City { get => city; set => city = value; }
         public string State { get => state; set => state = value; }
-        public string Zipcode1 { get => Zipcode; set => Zipcode = value; }
+        public string Zipcode { get => zipcode; set => zipcode = value; }
         #endregion
 
         #region Public Address Constructors
@@ -36,7 +36,18 @@ namespace AssetDispatchManager.tableObjects
             AddressLine2 = addressLine2;
             City = city;
             State = state;
-            Zipcode1 = zipcode1;
+            zipcode = zipcode1;
+        }
+
+        public Address()
+        {
+            AddressID = 0;
+            BuildingName = "Default Building Name";
+            AddressLine1 = "Default Address Line 1";
+            AddressLine2 = "Default Address Line 2";
+            City = "Default City";
+            State = "MO";
+            Zipcode = "00000";
         }
         #endregion
     }
