@@ -6,7 +6,7 @@
 }
 
 form {
-    width: 500px;
+    width: 700px;
     margin: auto;
     background: transparent;
 }
@@ -20,6 +20,12 @@ label {
     font-size: 14px;
 }
 
-.van {
-    margin-top: 10px;
+input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100px;
+    background: #926f34;
+    color: #fff;
+    font-size: 18px;
 }

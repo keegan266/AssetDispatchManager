@@ -4,51 +4,117 @@
     </div>
 </div>
 
-<form>
-    <div class="form-group">
-        <label for="custName">Customer Name</label>
-        <input type="text" class="form-control" id="custName" placeholder="Customer's Name">
-    </div>
-    <div class="form-group">
-        <label for="techName">Technician Name</label>
-        <input type="text" class="form-control" id="techName" placeholder="Technician's Name">
-    </div>
-    <label>Equipment</label>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="laserCheck">        
-        <label class="form-check-label" for="laserCheck">
-            Laser            
-        </label>        
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="lensCheck">        
-        <label class="form-check-label" for="lensCheck">
-            Lens
-        </label>        
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="phacoCheck">        
-        <label class="form-check-label" for="phacoCheck">
-            Phaco
-        </label>        
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="scopeCheck">        
-        <label class="form-check-label" for="scopeCheck">
-            Scope
-        </label>       
-    </div>
-    <div class="form-group van">
-        <label for="vanSelect">Van</label>
-        <select class="form-control" id="vanSelect">
-            <option>Long and Tall (10)</option>
-            <option>Long and Tall (16 - Butler Van)</option>
-            <option>Short and Tall</option>
-            <option>Short and Tall (in CO)</option>
-        </select>
-    </div>
+<form>    
     <div class="form-group">
         <label for="time">Time of Appointment</label>
         <input type="text" class="form-control" id="time" placeholder="00:00">
     </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="custName">Customer Name</label>
+            <input type="text" class="form-control" id="custName" placeholder="Customer's Name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="primaryTechSelect">Primary Tech</label>
+            <select class="form-control" id="primaryTechSelect">
+                <option>Alex Lance</option>
+                <option>Andrew Horsey</option>
+                <option>Andy Hawnr</option>
+                <option>David Moore</option>
+                <option>Jeramy Hagley</option>
+                <option>Johnny Kraft</option>
+                <option>Jonathan Citrin</option>
+                <option>Jonathan Shields</option>
+                <option>Kent Isenberg</option>
+                <option>Nick Swearingen</option>
+                <option>Ryan Rood</option>
+                <option>Sean</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="secondaryTechSelect">Secondary Tech</label>
+            <select class="form-control" id="secondaryTechSelect">
+                <option>none</option>
+                <option>Alex Lance</option>
+                <option>Andrew Horsey</option>
+                <option>Andy Hawnr</option>
+                <option>David Moore</option>
+                <option>Jeramy Hagley</option>
+                <option>Johnny Kraft</option>
+                <option>Jonathan Citrin</option>
+                <option>Jonathan Shields</option>
+                <option>Kent Isenberg</option>
+                <option>Nick Swearingen</option>
+                <option>Ryan Rood</option>
+                <option>Sean</option>
+            </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="tertiaryTechSelect">Tertiary Tech</label>
+                <select class="form-control" id="tertiaryTechSelect">
+                    <option>none</option>
+                    <option>Alex Lance</option>
+                    <option>Andrew Horsey</option>
+                    <option>Andy Hawnr</option>
+                    <option>David Moore</option>
+                    <option>Jeramy Hagley</option>
+                    <option>Johnny Kraft</option>
+                    <option>Jonathan Citrin</option>
+                    <option>Jonathan Shields</option>
+                    <option>Kent Isenberg</option>
+                    <option>Nick Swearingen</option>
+                    <option>Ryan Rood</option>
+                    <option>Sean</option>
+                </select>
+            </div>
+        
+        <div class="form-group col-md-6">
+            <label for="laserSelect">Laser</label>
+            <select class="form-control" id="laserSelect">
+                <option>None</option>
+                <option>Lumenis SLT</option>
+                <option>Yag Laser</option>
+                <option>Short and Tall (in CO)</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="lensSelect">Lens Cart</label>
+            <select class="form-control" id="lensSelect">
+                <option>None</option>
+                <option>Lens Cart</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="phacosSelect">Phacos</label>
+            <select class="form-control" id="phacosSelect">
+                <option>None</option>
+                <option>Alcon Centurion</option>
+                <option>Alcon Infiniti</option>
+                <option>B&L Stellaris</option>
+                <option>Centurion</option>
+                <option>Infiniti</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="scopeSelect">Scopes</label>
+            <select class="form-control" id="scopeSelect">
+                <option>None</option>
+                <option>Leica M690</option>
+                <option>Luxor E71</option>
+                <option>Luxor LX3</option>
+                <option>M690</option>
+                <option>Zeiss S7</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="vanSelect">Van</label>
+            <select class="form-control" id="vanSelect">
+                <option>Long and Tall (10)</option>
+                <option>Long and Tall (16 - Butler Van)</option>
+                <option>Short and Tall</option>
+                <option>Short and Tall (in CO)</option>
+            </select>
+        </div>
+    </div>
+    <input type="submit" value="Create"> 
 </form>
