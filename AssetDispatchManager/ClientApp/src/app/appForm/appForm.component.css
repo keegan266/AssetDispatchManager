@@ -20,12 +20,20 @@ label {
     font-size: 14px;
 }
 
+.equ-Checkbox{
+    margin-right:10px;
+}
+
+td{
+    padding-right:50px;
+}
+
 input[type="submit"] {
-    border: none;
-    outline: none;
-    height: 40px;
-    width: 100px;
-    background: #926f34;
-    color: #fff;
-    font-size: 18px;
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 100px;
+  background: #926f34;
+  color: #fff;
+  font-size: 18px;
 }

@@ -67,54 +67,87 @@
                     <option>Sean</option>
                 </select>
             </div>
-        
-        <div class="form-group col-md-6">
-            <label for="laserSelect">Laser</label>
-            <select class="form-control" id="laserSelect">
-                <option>None</option>
-                <option>Lumenis SLT</option>
-                <option>Yag Laser</option>
-                <option>Short and Tall (in CO)</option>
-            </select>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="lensSelect">Lens Cart</label>
-            <select class="form-control" id="lensSelect">
-                <option>None</option>
-                <option>Lens Cart</option>
-            </select>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="phacosSelect">Phacos</label>
-            <select class="form-control" id="phacosSelect">
-                <option>None</option>
-                <option>Alcon Centurion</option>
-                <option>Alcon Infiniti</option>
-                <option>B&L Stellaris</option>
-                <option>Centurion</option>
-                <option>Infiniti</option>
-            </select>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="scopeSelect">Scopes</label>
-            <select class="form-control" id="scopeSelect">
-                <option>None</option>
-                <option>Leica M690</option>
-                <option>Luxor E71</option>
-                <option>Luxor LX3</option>
-                <option>M690</option>
-                <option>Zeiss S7</option>
-            </select>
-        </div>
-        <div class="form-group col-md-6">
-            <label for="vanSelect">Van</label>
-            <select class="form-control" id="vanSelect">
-                <option>Long and Tall (10)</option>
-                <option>Long and Tall (16 - Butler Van)</option>
-                <option>Short and Tall</option>
-                <option>Short and Tall (in CO)</option>
-            </select>
-        </div>
+            <table>
+              <tr>
+                <th><label>Equipment</label></th>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" class="equ-Checkbox" ng-model="Laser"/>
+                  <label for="laserSelect">Laser</label>
+                </td>
+                  <td ng-show="Laser">
+                    <select class="form-control" id="laserSelect" >
+                    <option>None</option>
+                    <option>Lumenis SLT</option>
+                    <option>Yag Laser</option>
+                    <option>Short and Tall (in CO)</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input class="equ-Checkbox" type="checkbox" />
+                  <label for="lensSelect">Lens Cart</label>
+                </td>
+                <td>
+                  <select class="form-control" id="lensSelect">
+                    <option>None</option>
+                    <option>Lens Cart</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input class="equ-Checkbox" type="checkbox" />
+                  <label for="phacosSelect">Phacos</label>
+                </td>
+                <td>
+                <select class="form-control" id="phacosSelect">
+                  <option>None</option>
+                  <option>Alcon Centurion</option>
+                  <option>Alcon Infiniti</option>
+                  <option>B&L Stellaris</option>
+                  <option>Centurion</option>
+                  <option>Infiniti</option>
+                </select>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input class="equ-Checkbox" type="checkbox" />
+                  <label for="scopeSelect">Scopes</label>
+                </td>
+                <td>
+                  <select class="form-control" id="scopeSelect">
+                    <option>None</option>
+                    <option>Leica M690</option>
+                    <option>Luxor E71</option>
+                    <option>Luxor LX3</option>
+                    <option>M690</option>
+                    <option>Zeiss S7</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input class="equ-Checkbox" type="checkbox" />
+                  <label for="vanSelect">Van</label>
+                </td>
+                <td>
+                  <select class="form-control" id="vanSelect">
+                    <option>None</option>
+                    <option>Long and Tall (10)</option>
+                    <option>Long and Tall (16 - Butler Van)</option>
+                    <option>Short and Tall</option>
+                    <option>Short and Tall (in CO)</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+            <div>
+            </div>
     </div>
+  <br />
     <input type="submit" value="Create"> 
 </form>
