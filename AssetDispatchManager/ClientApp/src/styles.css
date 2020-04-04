@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Imports for calendar*/
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+
 /* Provide sufficient contrast against white background */
 body {
   background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(src/assets/dental-clinic-tools.jpg);

@@ -5,18 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AppFormComponent } from './appForm/appForm.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AppFormComponent
+    AppFormComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FullCalendarModule
   ],
   providers: [],
-  bootstrap: [AppFormComponent]
+  bootstrap: [CalendarComponent]
 })
 export class AppModule { }
