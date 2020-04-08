@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Imports for calendar*/
-@import '~@fullcalendar/core/main.css';
-@import '~@fullcalendar/daygrid/main.css';
+/* @import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css'; */
 
 /* Provide sufficient contrast against white background */
 body {
