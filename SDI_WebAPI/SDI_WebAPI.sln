@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssetDispatchManager", "AssetDispatchManager.csproj", "{4551AA7C-8EE3-4759-BC92-6316A70F893E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDI_WebAPI", "SDI_WebAPI.csproj", "{0CEB26D5-E0E9-43EE-AC14-34643DBCB72C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4551AA7C-8EE3-4759-BC92-6316A70F893E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4551AA7C-8EE3-4759-BC92-6316A70F893E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4551AA7C-8EE3-4759-BC92-6316A70F893E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4551AA7C-8EE3-4759-BC92-6316A70F893E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CEB26D5-E0E9-43EE-AC14-34643DBCB72C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CEB26D5-E0E9-43EE-AC14-34643DBCB72C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CEB26D5-E0E9-43EE-AC14-34643DBCB72C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CEB26D5-E0E9-43EE-AC14-34643DBCB72C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {327172C7-B76C-43F1-A52E-9657249C9A83}
+		SolutionGuid = {883B0F16-A341-4628-995B-E71E8D0A7CE1}
 	EndGlobalSection
 EndGlobal
