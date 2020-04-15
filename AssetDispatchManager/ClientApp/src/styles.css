@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Imports for calendar*/
-/* @import '~@fullcalendar/core/main.css';
-@import '~@fullcalendar/daygrid/main.css'; */
+/* angular-cli file: src/styles.css */
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
 
 /* Provide sufficient contrast against white background */
 body {
