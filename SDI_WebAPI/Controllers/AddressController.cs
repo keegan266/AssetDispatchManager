@@ -61,13 +61,15 @@ namespace SDI_WebAPI.Controllers
             return address;
         }
 
-        //public void Post([FromBody]string value)
-        //{
-        //    _Connector.Connect();
-        //    string command = $"INSERT INTO Address() VALUES({value})";
-        //    MySqlCommand execute = new MySqlCommand(command, _Connector.database);
-        //    _Connector.Disconnect();
-        //}
+        public void Post([FromBody]Address address)
+        {
+            _Connector.Connect();
+            string[] addressInfo = { address.BuildingName.ToString(), address.AddressLine1.ToString(), address.AddressLine2.ToString(), address.City.ToString(), address.State.ToString(), address.Zipcode.ToString() };
+
+            string command = $"INSERT INTO address(BuildingName, AddressLine1, AddressLine2, City, State, ZipCode) VALUES({addressInfo[0]}, {addressInfo[1]}, {addressInfo[2]}, {addressInfo[3]}, {addressInfo[4]}, {addressInfo[5]})";
+            MySqlCommand execute = new MySqlCommand(command, _Connector.database);
+            _Connector.Disconnect();
+        }
     }
-    
+
 }

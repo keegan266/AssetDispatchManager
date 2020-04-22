@@ -40,6 +40,9 @@ namespace SDI_WebAPI.Controllers
                                 case "ScopeID":
                                     newEquipment.ScopeID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
+                                case "VanID":
+                                    newEquipment.VanID = int.Parse(DataReader.GetValue(i).ToString());
+                                    break;
 
                             }
                         }

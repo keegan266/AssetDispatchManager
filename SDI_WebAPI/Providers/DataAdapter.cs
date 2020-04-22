@@ -44,5 +44,6 @@ namespace SDI_WebAPI.Providers
                 Console.WriteLine("Dissonnection Error: " + e);
             }
         } //Disconnects from the database ** Must be called in every function to end a connection and free the server
+
     }
 }

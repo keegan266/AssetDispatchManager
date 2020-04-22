@@ -37,9 +37,6 @@ namespace SDI_WebAPI.Controllers
                                 case "OnCallTechsID":
                                     newCustomer.OnCallTechsID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
-                                case "VanID":
-                                    newCustomer.VanID = int.Parse(DataReader.GetValue(i).ToString());
-                                    break;
 
                             }
                         }
