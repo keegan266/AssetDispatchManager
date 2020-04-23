@@ -61,6 +61,55 @@ namespace SDI_WebAPI.Controllers
             return address;
         }
 
+        public IEnumerable<Address> Get(string id)
+        {
+            List<Address> address = new List<Address>();
+            _Connector.Connect();
+            MySqlCommand execute = new MySqlCommand($"SELECT * FROM Address WHERE AddressID = {id};", _Connector.database);
+            using (MySqlDataReader DataReader = execute.ExecuteReader())
+            {
+                do
+                {
+                    while (DataReader.Read())
+                    {
+                        Address newAddress = new Address();
+                        for (int i = 0; i < DataReader.FieldCount; i++)
+                        {
+                            switch (DataReader.GetName(i))
+                            {
+                                case "AddressID":
+                                    newAddress.AddressID = int.Parse(DataReader.GetValue(i).ToString());
+                                    break;
+                                case "BuildingName":
+                                    newAddress.BuildingName = (string)DataReader.GetValue(i);
+                                    break;
+                                case "AddressLine1":
+                                    newAddress.AddressLine1 = (string)DataReader.GetValue(i);
+                                    break;
+                                case "AddressLine2":
+                                    newAddress.AddressLine2 = (string)DataReader.GetValue(i);
+                                    break;
+                                case "City":
+                                    newAddress.City = (string)DataReader.GetValue(i);
+                                    break;
+                                case "State":
+                                    newAddress.State = (string)DataReader.GetValue(i);
+                                    break;
+                                case "Zipcode":
+                                    newAddress.Zipcode = (string)DataReader.GetValue(i);
+                                    break;
+
+                            }
+                        }
+                        address.Add(newAddress);
+                    }
+                } while (DataReader.NextResult());
+            }
+            execute.Dispose();
+            _Connector.Disconnect();
+            return address;
+        }
+
         public void Post([FromBody]Address address)
         {
             _Connector.Connect();

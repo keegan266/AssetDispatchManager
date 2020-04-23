@@ -54,5 +54,47 @@ namespace SDI_WebAPI.Controllers
             _Connector.Disconnect();
             return onCallTechs;
         } //connects to server, runs query Select * from OnCallTechs and returns a list of OnCallTechs objects
+        public IEnumerable<OnCallTechs> Get(string id)
+        {
+            List<OnCallTechs> onCallTechs = new List<OnCallTechs>();
+            _Connector.Connect();
+            MySqlCommand execute = new MySqlCommand($"SELECT * FROM OnCallTechs WHERE OnCallTechID = {id};", _Connector.database);
+            using (MySqlDataReader DataReader = execute.ExecuteReader())
+            {
+                do
+                {
+                    while (DataReader.Read())
+                    {
+                        OnCallTechs newOnCallTechs = new OnCallTechs();
+                        for (int i = 0; i < DataReader.FieldCount; i++)
+                        {
+                            switch (DataReader.GetName(i))
+                            {
+                                case "OnCallTechID":
+                                    newOnCallTechs.OnCallTechID = int.Parse(DataReader.GetValue(i).ToString());
+                                    break;
+                                case "TechPrimaryID":
+                                    newOnCallTechs.TechPrimaryID1 = int.Parse(DataReader.GetValue(i).ToString());
+                                    break;
+                                case "TechSecondaryID":
+                                    newOnCallTechs.TechSecondaryID1 = int.Parse(DataReader.GetValue(i).ToString());
+                                    break;
+                                case "TechTertiaryID":
+                                    newOnCallTechs.TechTertiaryID1 = int.Parse(DataReader.GetValue(i).ToString());
+                                    break;
+                                case "TechAvailable":
+                                    newOnCallTechs.TechAvailable1 = byte.Parse(DataReader.GetValue(i).ToString());
+                                    break;
+
+                            }
+                        }
+                        onCallTechs.Add(newOnCallTechs);
+                    }
+                } while (DataReader.NextResult());
+            }
+            execute.Dispose();
+            _Connector.Disconnect();
+            return onCallTechs;
+        }
     }
 }

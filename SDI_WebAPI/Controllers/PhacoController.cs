@@ -54,5 +54,47 @@ namespace SDI_WebAPI.Controllers
             _Connector.Disconnect();
             return phacos;
         } //connects to server, runs query Select * from Phaco and returns a list of Phaco objects
+        public IEnumerable<Phaco> Get(string id)
+        {
+            List<Phaco> phacos = new List<Phaco>();
+            _Connector.Connect();
+            MySqlCommand execute = new MySqlCommand($"SELECT * FROM Scope WHERE PhacoID = {id};", _Connector.database);
+            using (MySqlDataReader DataReader = execute.ExecuteReader())
+            {
+                do
+                {
+                    while (DataReader.Read())
+                    {
+                        Phaco newPhaco = new Phaco();
+                        for (int i = 0; i < DataReader.FieldCount; i++)
+                        {
+                            switch (DataReader.GetName(i))
+                            {
+                                case "PhacoID":
+                                    newPhaco.PhacoID = int.Parse(DataReader.GetValue(i).ToString());
+                                    break;
+                                case "Brand":
+                                    newPhaco.Brand = (string)DataReader.GetValue(i);
+                                    break;
+                                case "Model":
+                                    newPhaco.Model = (string)DataReader.GetValue(i);
+                                    break;
+                                case "PhacoName":
+                                    newPhaco.PhacoName = (string)DataReader.GetValue(i);
+                                    break;
+                                case "IsActive":
+                                    newPhaco.IsActive = (bool)DataReader.GetValue(i);
+                                    break;
+
+                            }
+                        }
+                        phacos.Add(newPhaco);
+                    }
+                } while (DataReader.NextResult());
+            }
+            execute.Dispose();
+            _Connector.Disconnect();
+            return phacos;
+        }
     }
 }
