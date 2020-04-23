@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using MySql.Data.MySqlClient;
 
-namespace SDI_WebAPI.Providers
+namespace SDI_WebApi.Providers
 {
     public class DataAdapter
     {

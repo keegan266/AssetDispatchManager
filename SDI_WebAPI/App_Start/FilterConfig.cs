@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace SDI_WebAPI
+namespace SDI_WebApi
 {
     public class FilterConfig
     {

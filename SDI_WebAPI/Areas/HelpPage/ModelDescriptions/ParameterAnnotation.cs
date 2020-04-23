@@ -1,6 +1,6 @@
 using System;
 
-namespace SDI_WebAPI.Areas.HelpPage.ModelDescriptions
+namespace SDI_WebApi.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterAnnotation
     {

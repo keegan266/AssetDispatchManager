@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SDI_WebAPI.Tables
+namespace SDI_WebApi.Tables
 {
     public class Van
     {

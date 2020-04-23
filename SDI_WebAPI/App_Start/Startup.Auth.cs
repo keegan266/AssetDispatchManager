@@ -8,10 +8,10 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using SDI_WebAPI.Providers;
-using SDI_WebAPI.Models;
+using SDI_WebApi.Providers;
+using SDI_WebApi.Models;
 
-namespace SDI_WebAPI
+namespace SDI_WebApi
 {
     public partial class Startup
     {

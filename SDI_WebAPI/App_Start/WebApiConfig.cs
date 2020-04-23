@@ -6,7 +6,7 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 
-namespace SDI_WebAPI
+namespace SDI_WebApi
 {
     public static class WebApiConfig
     {

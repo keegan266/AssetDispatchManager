@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Web.Http;
 using MySql.Data.MySqlClient;
-using SDI_WebAPI.Providers;
-using SDI_WebAPI.Tables;
+using SDI_WebApi.Providers;
+using SDI_WebApi.Tables;
 
 namespace SDI_WebAPI.Controllers
 {

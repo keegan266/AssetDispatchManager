@@ -13,11 +13,11 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using SDI_WebAPI.Models;
-using SDI_WebAPI.Providers;
-using SDI_WebAPI.Results;
+using SDI_WebApi.Models;
+using SDI_WebApi.Providers;
+using SDI_WebApi.Results;
 
-namespace SDI_WebAPI.Controllers
+namespace SDI_WebApi.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]

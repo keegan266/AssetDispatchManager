@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SDI_WebAPI.Models
+namespace SDI_WebApi.Models
 {
     // Models returned by AccountController actions.
 
