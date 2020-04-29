@@ -8,5 +8,9 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 })
 
 export class CalendarComponent {
+    calendarPlugins = [dayGridPlugin];
+    constructor() {
+
+    }
     
 }

@@ -8,6 +8,7 @@ import { AppFormComponent } from './appForm/appForm.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
-    })
+    }),
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [CalendarComponent]

@@ -15,3 +15,37 @@ body {
 html, body {
   height: 100%;
 }
+
+.navBackground {
+  background: #926f34;    
+}
+
+.navbar a {
+  color: white !important;
+}
+
+.btn {
+  background: #355c7d;
+  color: white;
+  border: none;
+}
+
+.fc-view-container {
+  background: #355b7dcb;  
+}
+
+.fc-toolbar, .fc-header-toolbar {
+  margin-bottom: 1em !important;
+}
+
+.fc-unthemed, td, .fc-today {
+  background: transparent !important;
+}
+
+td, thead, th {
+  border: none !important;
+}
+
+.fc-today, .fc-unthemed {
+  border: 1px, solid, #926f34 !important;
+}
