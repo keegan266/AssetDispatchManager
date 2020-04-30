@@ -4,6 +4,8 @@ using System.Web.Http;
 using MySql.Data.MySqlClient;
 using SDI_WebApi.Providers;
 using SDI_WebApi.Tables;
+using System.Net;
+using System.Web.Http.Results;
 
 namespace SDI_WebAPI.Controllers
 {
@@ -147,6 +149,22 @@ namespace SDI_WebAPI.Controllers
             execute.Dispose();
             _Connector.Disconnect();
             return appointments;
+        }
+
+        public NegotiatedContentResult<string> Post([FromBody]Appointment appointment)
+        {
+            if (_Connector.SanatizeCheck(appointment.Info()))
+            {
+                _Connector.Connect();
+                string command = $"INSERT INTO Appointment(CustomerID, DateTimeStart, DateTimeEnd, ShipDate, EquipmentCheckedin) VALUES({appointment.Info()})";
+                MySqlCommand execute = new MySqlCommand(command, _Connector.database);
+                _Connector.Disconnect();
+                return Content(HttpStatusCode.OK, "");
+            }
+            else
+            {
+                return Content(HttpStatusCode.Unauthorized, "Anti-Sql Injection Check failed");
+            }
         }
     }
 }

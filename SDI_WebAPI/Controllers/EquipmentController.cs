@@ -3,6 +3,8 @@ using System.Web.Http;
 using MySql.Data.MySqlClient;
 using SDI_WebApi.Providers;
 using SDI_WebApi.Tables;
+using System.Net;
+using System.Web.Http.Results;
 
 namespace SDI_WebAPI.Controllers
 {
@@ -33,6 +35,9 @@ namespace SDI_WebAPI.Controllers
                                     break;
                                 case "LaserID":
                                     newEquipment.LaserID = int.Parse(DataReader.GetValue(i).ToString());
+                                    break;
+                                case "LensID":
+                                    newEquipment.LensID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
                                 case "PhacoID":
                                     newEquipment.PhacoID = int.Parse(DataReader.GetValue(i).ToString());
@@ -76,6 +81,9 @@ namespace SDI_WebAPI.Controllers
                                 case "LaserID":
                                     newEquipment.LaserID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
+                                case "LensID":
+                                    newEquipment.LensID = int.Parse(DataReader.GetValue(i).ToString());
+                                    break;
                                 case "PhacoID":
                                     newEquipment.PhacoID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
@@ -95,6 +103,21 @@ namespace SDI_WebAPI.Controllers
             execute.Dispose();
             _Connector.Disconnect();
             return equipment;
+        }
+        public NegotiatedContentResult<string> Post([FromBody] Equipment equipment)
+        {
+            if (_Connector.SanatizeCheck(equipment.Info()))
+            {
+                _Connector.Connect();
+                string command = $"INSERT INTO Equipment(LaserID, LensID, PhacoID, ScopeID, VanID) VALUES({equipment.Info()})";
+                MySqlCommand execute = new MySqlCommand(command, _Connector.database);
+                _Connector.Disconnect();
+                return Content(HttpStatusCode.OK, "");
+            }
+            else
+            {
+                return Content(HttpStatusCode.Unauthorized, "Anti-Sql Injection Check failed");
+            }
         }
     }
 }

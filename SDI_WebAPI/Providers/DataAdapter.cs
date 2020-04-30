@@ -44,6 +44,19 @@ namespace SDI_WebApi.Providers
                 Console.WriteLine("Dissonnection Error: " + e);
             }
         } //Disconnects from the database ** Must be called in every function to end a connection and free the server
-
+        public bool SanatizeCheck(string input)
+        {
+            string[] _sqlWatch = {"select", "if", "while", "drop", "insert", "from", "print", "printf", "where", "or", "and", "--", ";", "="};
+            string inputLower = input.ToLower();
+            bool _checker = true;
+            for (int i = 0; i < _sqlWatch.Length; i++)
+            {
+                if (inputLower.Contains(_sqlWatch[i]))
+                {
+                    _checker = false;
+                }
+            }
+            return _checker;
+        }
     }
 }

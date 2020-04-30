@@ -3,6 +3,8 @@ using System.Web.Http;
 using MySql.Data.MySqlClient;
 using SDI_WebApi.Providers;
 using SDI_WebApi.Tables;
+using System.Net;
+using System.Web.Http.Results;
 
 namespace SDI_WebAPI.Controllers
 {
@@ -32,7 +34,7 @@ namespace SDI_WebAPI.Controllers
                                     newLens.LenseID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
                                 case "LenseName":
-                                    newLens.LenseName = (string)DataReader.GetValue(i);
+                                    newLens.LensName = (string)DataReader.GetValue(i);
                                     break;
                                 case "IsActive":
                                     newLens.IsActive = (bool)DataReader.GetValue(i);
@@ -68,7 +70,7 @@ namespace SDI_WebAPI.Controllers
                                     newLens.LenseID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
                                 case "LenseName":
-                                    newLens.LenseName = (string)DataReader.GetValue(i);
+                                    newLens.LensName = (string)DataReader.GetValue(i);
                                     break;
                                 case "IsActive":
                                     newLens.IsActive = (bool)DataReader.GetValue(i);
@@ -83,6 +85,21 @@ namespace SDI_WebAPI.Controllers
             execute.Dispose();
             _Connector.Disconnect();
             return lens;
+        }
+        public NegotiatedContentResult<string> Post([FromBody] Lens lens)
+        {
+            if (_Connector.SanatizeCheck(lens.Info()))
+            {
+                _Connector.Connect();
+                string command = $"INSERT INTO LensCart(LensName, IsActive) VALUES({lens.Info()})";
+                MySqlCommand execute = new MySqlCommand(command, _Connector.database);
+                _Connector.Disconnect();
+                return Content(HttpStatusCode.OK, "");
+            }
+            else
+            {
+                return Content(HttpStatusCode.Unauthorized, "Anti-Sql Injection Check failed");
+            }
         }
     }
 }

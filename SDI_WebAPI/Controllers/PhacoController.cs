@@ -3,6 +3,8 @@ using System.Web.Http;
 using MySql.Data.MySqlClient;
 using SDI_WebApi.Providers;
 using SDI_WebApi.Tables;
+using System.Net;
+using System.Web.Http.Results;
 
 namespace SDI_WebAPI.Controllers
 {
@@ -95,6 +97,21 @@ namespace SDI_WebAPI.Controllers
             execute.Dispose();
             _Connector.Disconnect();
             return phacos;
+        }
+        public NegotiatedContentResult<string> Post([FromBody] Phaco phaco)
+        {
+            if (_Connector.SanatizeCheck(phaco.Info()))
+            {
+                _Connector.Connect();
+                string command = $"INSERT INTO Phaco(PhacoName, Brand, Model, IsActive) VALUES({phaco.Info()})";
+                MySqlCommand execute = new MySqlCommand(command, _Connector.database);
+                _Connector.Disconnect();
+                return Content(HttpStatusCode.OK, "");
+            }
+            else
+            {
+                return Content(HttpStatusCode.Unauthorized, "Anti-Sql Injection Check failed");
+            }
         }
     }
 }

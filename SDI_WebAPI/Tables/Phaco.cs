@@ -42,5 +42,15 @@ namespace SDI_WebApi.Tables
             IsActive = false;
         }
         #endregion
+
+        public string Info()
+        {
+            string _van = string.Empty;
+            _ = (PhacoName == "" ? _van += "null," : _van += $"'{PhacoName.ToString()}',");
+            _ = (Brand == "" ? _van += "null," : _van += $"'{Brand.ToString()}',");
+            _ = (Model == "" ? _van += "null," : _van += $"'{Model.ToString()}',");
+            _ = (IsActive == true ? _van += "TRUE" : _van += $"FALSE");
+            return _van;
+        }
     }
 }

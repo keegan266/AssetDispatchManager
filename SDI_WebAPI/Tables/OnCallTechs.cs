@@ -9,38 +9,48 @@ namespace SDI_WebApi.Tables
     {
         #region Private OnCallTechs Variables
         private int onCallTechID;
-        private int TechPrimaryID;
-        private int TechSecondaryID;
-        private int TechTertiaryID;
-        private byte TechAvailable;
+        private int techPrimaryID;
+        private int techSecondaryID;
+        private int techTertiaryID;
+        private byte techAvailable;
         #endregion
 
         #region Public OnCallTechs GetterSetters
         public int OnCallTechID { get => onCallTechID; set => onCallTechID = value; }
-        public int TechPrimaryID1 { get => TechPrimaryID; set => TechPrimaryID = value; }
-        public int TechSecondaryID1 { get => TechSecondaryID; set => TechSecondaryID = value; }
-        public int TechTertiaryID1 { get => TechTertiaryID; set => TechTertiaryID = value; }
-        public byte TechAvailable1 { get => TechAvailable; set => TechAvailable = value; }
+        public int TechPrimaryID { get => techPrimaryID; set => techPrimaryID = value; }
+        public int TechSecondaryID { get => techSecondaryID; set => techSecondaryID = value; }
+        public int TechTertiaryID { get => techTertiaryID; set => techTertiaryID = value; }
+        public byte TechAvailable { get => techAvailable; set => techAvailable = value; }
         #endregion
 
         #region Public OnCallTechs Constructors
-        public OnCallTechs(int onCallTechID, int techPrimaryID1, int techSecondaryID1, int techTertiaryID1, byte techAvailable1)
+        public OnCallTechs(int onCallTechID, int techPrimaryID, int techSecondaryID, int techTertiaryID, byte techAvailable)
         {
             OnCallTechID = onCallTechID;
-            TechPrimaryID1 = techPrimaryID1;
-            TechSecondaryID1 = techSecondaryID1;
-            TechTertiaryID1 = techTertiaryID1;
-            TechAvailable1 = techAvailable1;
+            TechPrimaryID = techPrimaryID;
+            TechSecondaryID = techSecondaryID;
+            TechTertiaryID = techTertiaryID;
+            TechAvailable = techAvailable;
         }
 
         public OnCallTechs()
         {
             OnCallTechID = 0;
-            TechPrimaryID1 = 0;
-            TechSecondaryID1 = 0;
-            TechTertiaryID1 = 0;
-            TechAvailable1 = 0;
+            TechPrimaryID = 0;
+            TechSecondaryID = 0;
+            TechTertiaryID = 0;
+            TechAvailable = 0;
         }
         #endregion
+
+        public string Info()
+        {
+            string _tech = string.Empty;
+            _ = (TechPrimaryID == 0 ? _tech += "0," : _tech += $"'{TechPrimaryID.ToString()}',");
+            _ = (TechSecondaryID == 0 ? _tech += "0," : _tech += $"'{TechSecondaryID.ToString()}',");
+            _ = (TechTertiaryID == 0 ? _tech += "0," : _tech += $"'{TechTertiaryID.ToString()}',");
+            _ = (TechAvailable == 0 ? _tech += "0" : _tech += $"'{TechAvailable.ToString()}'");
+            return _tech;
+        }
     }
 }

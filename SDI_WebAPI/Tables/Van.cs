@@ -46,5 +46,16 @@ namespace SDI_WebApi.Tables
             InUse = false;
         }
         #endregion
+
+        public string Info()
+        {
+            string _van = string.Empty;
+            _ = (Brand == "" ? _van += "null," : _van += $"'{Brand.ToString()}',");
+            _ = (Model == "" ? _van += "null," : _van += $"'{Model.ToString()}',");
+            _ = (Length == "" ? _van += "null," : _van += $"'{Length.ToString()}',");
+            _ = (Height == "" ? _van += "null," : _van += $"'{Height.ToString()}',");
+            _ = (InUse == true ? _van += "TRUE" : _van += $"FALSE");
+            return _van;
+        }
     }
 }

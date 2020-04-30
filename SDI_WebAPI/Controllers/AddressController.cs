@@ -3,6 +3,8 @@ using System.Web.Http;
 using MySql.Data.MySqlClient;
 using SDI_WebApi.Providers;
 using SDI_WebApi.Tables;
+using System.Net;
+using System.Web.Http.Results;
 
 namespace SDI_WebAPI.Controllers
 {
@@ -110,14 +112,20 @@ namespace SDI_WebAPI.Controllers
             return address;
         }
 
-        public void Post([FromBody]Address address)
+        public NegotiatedContentResult<string> Post([FromBody]Address address)
         {
-            _Connector.Connect();
-            string[] addressInfo = { address.BuildingName.ToString(), address.AddressLine1.ToString(), address.AddressLine2.ToString(), address.City.ToString(), address.State.ToString(), address.Zipcode.ToString() };
-
-            string command = $"INSERT INTO address(BuildingName, AddressLine1, AddressLine2, City, State, ZipCode) VALUES({addressInfo[0]}, {addressInfo[1]}, {addressInfo[2]}, {addressInfo[3]}, {addressInfo[4]}, {addressInfo[5]})";
-            MySqlCommand execute = new MySqlCommand(command, _Connector.database);
-            _Connector.Disconnect();
+            if (_Connector.SanatizeCheck(address.Info()))
+            {
+                _Connector.Connect();
+                string command = $"INSERT INTO address(BuildingName, AddressLine1, AddressLine2, City, State, ZipCode) VALUES({address.Info()})";
+                MySqlCommand execute = new MySqlCommand(command, _Connector.database);
+                _Connector.Disconnect();
+                return Content(HttpStatusCode.OK, "");
+            }
+            else
+            {
+                return Content(HttpStatusCode.Unauthorized, "Anti-Sql Injection Check failed");
+            }
         }
     }
 

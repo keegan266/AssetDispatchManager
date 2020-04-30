@@ -35,5 +35,12 @@ namespace SDI_WebApi.Tables
             OnCallTechsID = 0;
         }
         #endregion
+        public string Info()
+        {
+            string _addressInfo = string.Empty;
+            _ = (SetupID == 0 ? _addressInfo += "null," : _addressInfo += $"'{SetupID.ToString()}',");
+            _ = (OnCallTechsID == 0 ? _addressInfo += "null" : _addressInfo += $"'{OnCallTechsID.ToString()}'");
+            return _addressInfo;
+        }
     }
 }

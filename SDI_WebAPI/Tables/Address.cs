@@ -50,5 +50,17 @@ namespace SDI_WebApi.Tables
             Zipcode = "00000";
         }
         #endregion
+
+        public string Info()
+        {
+            string _addressInfo = string.Empty;
+            _ = (BuildingName == "" ? _addressInfo += "null," : _addressInfo += $"'{BuildingName.ToString()}',");
+            _ = (AddressLine1 == "" ? _addressInfo += "null," : _addressInfo += $"'{AddressLine1.ToString()}',");
+            _ = (AddressLine2 == "" ? _addressInfo += "null," : _addressInfo += $"'{AddressLine2.ToString()}',");
+            _ = (City == "" ? _addressInfo += "null," : _addressInfo += $"'{City.ToString()}',");
+            _ = (State == "" ? _addressInfo += "null," : _addressInfo += $"'{State.ToString()}',");
+            _ = (Zipcode == "" ? _addressInfo += "null" : _addressInfo += $"'{Zipcode.ToString()}'");
+            return _addressInfo;
+        }
     }
 }

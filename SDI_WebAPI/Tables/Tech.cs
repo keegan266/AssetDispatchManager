@@ -51,11 +51,16 @@ namespace SDI_WebApi.Tables
         }
         #endregion
 
-        #region Methods
-        public override string ToString()
+        public string Info()
         {
-            return $"TechID : {TechID} FirstName : {FirstName} LastName : {LastName} JobRole : {JobRole} Email : {Email} PhoneNumber : {PhoneNumber} IsWorking : {IsWorking}";
+            string _tech = string.Empty;
+            _ = (FirstName == "" ? _tech += "null," : _tech += $"'{FirstName.ToString()}',");
+            _ = (LastName == "" ? _tech += "null," : _tech += $"'{LastName.ToString()}',");
+            _ = (JobRole == "" ? _tech += "null," : _tech += $"'{JobRole.ToString()}',");
+            _ = (Email == "" ? _tech += "null," : _tech += $"'{Email.ToString()}',");
+            _ = (PhoneNumber == "" ? _tech += "null," : _tech += $"'{PhoneNumber.ToString()}',");
+            _ = (IsWorking == true ? _tech += "TRUE" : _tech += $"FALSE");
+            return _tech;
         }
-        #endregion
     }
 }

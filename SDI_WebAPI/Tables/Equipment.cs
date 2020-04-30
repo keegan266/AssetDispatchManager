@@ -10,6 +10,7 @@ namespace SDI_WebApi.Tables
         #region Private Equipment Variables
         private int equipmentID;
         private int laserID;
+        private int lensID;
         private int phacoID;
         private int scopeID;
         private int vanID;
@@ -18,6 +19,7 @@ namespace SDI_WebApi.Tables
         #region Public Equipment GetterSetters
         public int EquipmentID { get => equipmentID; set => equipmentID = value; }
         public int LaserID { get => laserID; set => laserID = value; }
+        public int LensID { get => lensID; set => lensID=value; }
         public int PhacoID { get => phacoID; set => phacoID = value; }
         public int ScopeID { get => scopeID; set => scopeID = value; }
         public int VanID { get => vanID; set => vanID = value; }
@@ -42,5 +44,15 @@ namespace SDI_WebApi.Tables
             VanID = 0;
         }
         #endregion
+        public string Info()
+        {
+            string _tech = string.Empty;
+            _ = (LaserID == 0 ? _tech += "0," : _tech += $"'{LaserID.ToString()}',");
+            _ = (LensID == 0 ? _tech += "0," : _tech += $"'{LensID.ToString()}',");
+            _ = (PhacoID == 0 ? _tech += "0," : _tech += $"'{PhacoID.ToString()}',");
+            _ = (ScopeID == 0 ? _tech += "0," : _tech += $"'{ScopeID.ToString()}',");
+            _ = (VanID == 0 ? _tech += "0" : _tech += $"'{VanID.ToString()}'");
+            return _tech;
+        }
     }
 }

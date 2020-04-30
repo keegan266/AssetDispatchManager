@@ -15,24 +15,32 @@ namespace SDI_WebApi.Tables
 
         #region Public Lens GetterSetters
         public int LenseID { get => lenseID; set => lenseID = value; }
-        public string LenseName { get => lenseName; set => lenseName = value; }
+        public string LensName { get => lenseName; set => lenseName = value; }
         public bool IsActive { get => isActive; set => isActive = value; }
         #endregion
 
         #region Public Lens Constructors
-        public Lens(int lenseID, string lenseName, bool isActive)
+        public Lens(int lenseID, string lensName, bool isActive)
         {
             LenseID = lenseID;
-            LenseName = lenseName;
+            LensName = lenseName;
             IsActive = isActive;
         }
 
         public Lens()
         {
             LenseID = 0;
-            LenseName = "Default Lensname";
+            LensName = "Default Lensname";
             IsActive = false;
         }
         #endregion
+
+        public string Info()
+        {
+            string _van = string.Empty;
+            _ = (LensName == "" ? _van += "null," : _van += $"'{LensName.ToString()}',");
+            _ = (IsActive == true ? _van += "TRUE" : _van += $"FALSE");
+            return _van;
+        }
     }
 }

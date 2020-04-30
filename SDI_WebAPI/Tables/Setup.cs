@@ -54,5 +54,18 @@ namespace SDI_WebApi.Tables
             SetUpDescription = "Default SetUpDescription";
         }
         #endregion
+
+        public string Info()
+        {
+            string _addressInfo = string.Empty;
+            _ = (AddressID == 0 ? _addressInfo += "null," : _addressInfo += $"'{AddressID.ToString()}',");
+            _ = (EquipmentID == 0 ? _addressInfo += "null," : _addressInfo += $"'{EquipmentID.ToString()}',");
+            _ = (DoctorFirstName == "" ? _addressInfo += "null," : _addressInfo += $"'{DoctorFirstName.ToString()}',");
+            _ = (DoctroLastName == "" ? _addressInfo += "null," : _addressInfo += $"'{DoctroLastName.ToString()}',");
+            _ = (RoomNumber == 0 ? _addressInfo += "null," : _addressInfo += $"'{RoomNumber.ToString()}',");
+            _ = (Image == "" ? _addressInfo += "null," : _addressInfo += $"'{Image.ToString()},'");
+            _ = (SetUpDescription == "" ? _addressInfo += "null" : _addressInfo += $"'{SetUpDescription.ToString()}'");
+            return _addressInfo;
+        }
     }
 }

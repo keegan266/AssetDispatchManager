@@ -3,6 +3,8 @@ using System.Web.Http;
 using MySql.Data.MySqlClient;
 using SDI_WebApi.Providers;
 using SDI_WebApi.Tables;
+using System.Net;
+using System.Web.Http.Results;
 
 namespace SDI_WebAPI.Controllers
 {
@@ -32,16 +34,16 @@ namespace SDI_WebAPI.Controllers
                                     newOnCallTechs.OnCallTechID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
                                 case "TechPrimaryID":
-                                    newOnCallTechs.TechPrimaryID1 = int.Parse(DataReader.GetValue(i).ToString());
+                                    newOnCallTechs.TechPrimaryID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
                                 case "TechSecondaryID":
-                                    newOnCallTechs.TechSecondaryID1 = int.Parse(DataReader.GetValue(i).ToString());
+                                    newOnCallTechs.TechSecondaryID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
                                 case "TechTertiaryID":
-                                    newOnCallTechs.TechTertiaryID1 = int.Parse(DataReader.GetValue(i).ToString());
+                                    newOnCallTechs.TechTertiaryID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
                                 case "TechAvailable":
-                                    newOnCallTechs.TechAvailable1 = byte.Parse(DataReader.GetValue(i).ToString());
+                                    newOnCallTechs.TechAvailable = byte.Parse(DataReader.GetValue(i).ToString());
                                     break;
 
                             }
@@ -74,16 +76,16 @@ namespace SDI_WebAPI.Controllers
                                     newOnCallTechs.OnCallTechID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
                                 case "TechPrimaryID":
-                                    newOnCallTechs.TechPrimaryID1 = int.Parse(DataReader.GetValue(i).ToString());
+                                    newOnCallTechs.TechPrimaryID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
                                 case "TechSecondaryID":
-                                    newOnCallTechs.TechSecondaryID1 = int.Parse(DataReader.GetValue(i).ToString());
+                                    newOnCallTechs.TechSecondaryID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
                                 case "TechTertiaryID":
-                                    newOnCallTechs.TechTertiaryID1 = int.Parse(DataReader.GetValue(i).ToString());
+                                    newOnCallTechs.TechTertiaryID = int.Parse(DataReader.GetValue(i).ToString());
                                     break;
                                 case "TechAvailable":
-                                    newOnCallTechs.TechAvailable1 = byte.Parse(DataReader.GetValue(i).ToString());
+                                    newOnCallTechs.TechAvailable = byte.Parse(DataReader.GetValue(i).ToString());
                                     break;
 
                             }
@@ -95,6 +97,21 @@ namespace SDI_WebAPI.Controllers
             execute.Dispose();
             _Connector.Disconnect();
             return onCallTechs;
+        }
+        public NegotiatedContentResult<string> Post([FromBody] OnCallTechs onCallTechs)
+        {
+            if (_Connector.SanatizeCheck(onCallTechs.Info()))
+            {
+                _Connector.Connect();
+                string command = $"INSERT INTO OnCallTechs(TechPrimaryID, TechSecondaryID, TechTertiaryID, TechAvailable) VALUES({onCallTechs.Info()})";
+                MySqlCommand execute = new MySqlCommand(command, _Connector.database);
+                _Connector.Disconnect();
+                return Content(HttpStatusCode.OK, "");
+            }
+            else
+            {
+                return Content(HttpStatusCode.Unauthorized, "Anti-Sql Injection Check failed");
+            }
         }
     }
 }

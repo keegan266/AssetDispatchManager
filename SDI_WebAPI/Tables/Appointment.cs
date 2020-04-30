@@ -46,5 +46,16 @@ namespace SDI_WebApi.Tables
             IsActive = false;
         }
         #endregion
+
+        public string Info()
+        {
+            string _addressInfo = string.Empty;
+            _ = (CustomerID == 0 ? _addressInfo += "null," : _addressInfo += $"'{CustomerID.ToString()}',");
+            _ = (DateTimeStart == new DateTime() ? _addressInfo += "null," : _addressInfo += $"'{DateTimeStart.ToString()}',");
+            _ = (DateTimeEnd == new DateTime() ? _addressInfo += "null," : _addressInfo += $"'{DateTimeEnd.ToString()}',");
+            _ = (ShipDate == new DateTime() ? _addressInfo += "null," : _addressInfo += $"'{ShipDate.ToString()}',");
+            _ = (IsActive == true ? _addressInfo += "TRUE" : _addressInfo += $"FALSE");
+            return _addressInfo;
+        }
     }
 }
