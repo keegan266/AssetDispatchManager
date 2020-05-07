@@ -1,0 +1,11 @@
+input[type=submit] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #926f34;
+    color: #fff;
+    font-size: 18px;
+    position: relative;
+    bottom: 40px;
+    left: 1150px;
+}

@@ -7,12 +7,17 @@
 /* Provide sufficient contrast against white background */
 body {
   background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(src/assets/dental-clinic-tools.jpg);
-  background-size: cover;
+  background-size: auto;
   background-repeat: no-repeat;
   background-position: center;
+
 }
 
 html, body {
+  height: 100%;
+}
+
+.container {
   height: 100%;
 }
 

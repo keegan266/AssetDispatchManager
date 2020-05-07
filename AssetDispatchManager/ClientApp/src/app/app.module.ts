@@ -31,6 +31,7 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
       {path: 'login', component: LoginComponent},
       {path: 'calendar', component: CalendarComponent},
+      {path: 'form', component: AppFormComponent},
       {path: '', redirectTo: 'login', pathMatch: 'full'}
     ])
   ],
