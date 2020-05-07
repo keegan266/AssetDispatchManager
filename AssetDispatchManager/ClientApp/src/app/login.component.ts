@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { User } from "../login/user";
 
 @Component({
   selector: 'app-login',
@@ -7,9 +6,5 @@ import { User } from "../login/user";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-    title: 'Log In';
-    user: User = {
-        username: 'Keegs',
-        password: 'bloop2'
-    }
+    title: 'Log In';    
 }

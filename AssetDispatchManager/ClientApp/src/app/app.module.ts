@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login.component';
 import { AppFormComponent } from './appForm/appForm.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
@@ -30,10 +30,11 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     RouterModule.forRoot([
       {path: 'login', component: LoginComponent},
-      {path: 'calendar', component: CalendarComponent}
+      {path: 'calendar', component: CalendarComponent},
+      {path: '', redirectTo: 'login', pathMatch: 'full'}
     ])
   ],
   providers: [],
-  bootstrap: [LoginComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
